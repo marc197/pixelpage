@@ -1,0 +1,148 @@
+<head>
+  <!-- Meta Pixel Code -->
+  <script>
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(
+      window,
+      document,
+      "script",
+      "https://connect.facebook.net/en_US/fbevents.js"
+    );
+    fbq("init", "810482497656143");
+    fbq("track", "PageView");
+  </script>
+  <noscript
+    ><img
+      height="1"
+      width="1"
+      style="display: none"
+      src="https://www.facebook.com/tr?id=455694246424682&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <meta
+    name="facebook-domain-verification"
+    content="qowwrhpyni79cf2pms3zixyrxoh3b4"
+  />
+  <!-- <meta http-equiv="Content-Security-Policy" content="connect-src 'self' 
+https://cb-bugbash-sa-0717.cbinternal.com"> -->
+  <title>Pixel test page</title>
+</head>
+<body>
+  <h2>pixel test page</h2>
+  <div>
+    <ul>
+      <li>
+        <button id="addToWishlistButton" type="button">Add to Wishlist</button>
+      </li>
+      <li><button id="subcribeButton" type="button">Subscribe</button></li>
+      <li>
+        <button id="registrationButton" type="button">Registration</button>
+      </li>
+    </ul>
+  </div>
+  <h3>Events with User Data</h3>
+  <div>
+    <ul>
+      <li>
+        <button id="addToCartButton" type="button">Add to Cart with ph</button>
+      </li>
+      <li>
+        <button id="checkoutButton" type="button">Check Out with zip</button>
+      </li>
+      <li>
+        <button id="purchaseButton" type="button">Purchase with em</button>
+      </li>
+      <li><button id="externalId" type="button">External Id</button></li>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+    document.getElementById("addToWishlistButton").addEventListener(
+      "click",
+      function () {
+        fbq("track", "AddToWishlist");
+      },
+      false
+    );
+
+    document.getElementById("addToCartButton").addEventListener(
+      "click",
+      function () {
+        fbq("track", "AddToCart", {
+          currency: "USD",
+          value: 1.0,
+          user_data: { ph: "2061231234" },
+        });
+      },
+      false
+    );
+
+    document.getElementById("checkoutButton").addEventListener(
+      "click",
+      function () {
+        fbq("track", "InitiateCheckout", {
+          currency: "USD",
+          value: 1.0,
+          name: "Small Pikachu",
+          user_data: { zip: "98052" },
+        });
+      },
+      false
+    );
+
+    document.getElementById("purchaseButton").addEventListener(
+      "click",
+      function () {
+        fbq("track", "Purchase", {
+          value: 100,
+          currency: "USD",
+          name: "Small Pikachu",
+          user_data: { em: "purchase@test.com" },
+        });
+      },
+      false
+    );
+
+    document.getElementById("subcribeButton").addEventListener(
+      "click",
+      function () {
+        fbq("track", "Subscribe");
+      },
+      false
+    );
+
+    document.getElementById("registrationButton").addEventListener(
+      "click",
+      function () {
+        fbq("track", "CompleteRegistration");
+      },
+      false
+    );
+
+    document.getElementById("externalId").addEventListener(
+      "click",
+      function () {
+        fbq("track", "AddToCart", {
+          user_data: { external_id: "external_id_test" },
+        });
+      },
+      false
+    );
+  </script>
+</body>
